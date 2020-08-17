@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment.prod';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShellComponent } from './shared/shell/shell.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { ReactiveFormsModule } from '@angular/forms';
 firebase.initializeApp(environment.firebase);
 @NgModule({
   declarations: [
@@ -26,7 +27,11 @@ firebase.initializeApp(environment.firebase);
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    NgbModule
+    NgbModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
