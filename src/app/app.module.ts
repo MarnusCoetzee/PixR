@@ -13,11 +13,13 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment.prod';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShellComponent } from './shared/shell/shell.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 firebase.initializeApp(environment.firebase);
 @NgModule({
   declarations: [
     AppComponent,
-    ShellComponent
+    ShellComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
