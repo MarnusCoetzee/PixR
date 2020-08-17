@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "pixr-aca28": {
+      "hosting": {
+        "pixr": [
+          "pixr-aca28"
+        ]
+      }
+    }
+  }
+}
