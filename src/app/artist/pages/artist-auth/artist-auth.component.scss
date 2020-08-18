@@ -1,0 +1,59 @@
+.heading {
+    text-align: center;
+    h1 {
+        margin-top: 1rem;
+    }
+
+    img {
+        margin-top: 1rem;
+        width: 6rem;
+    }
+}
+
+
+
+mat-card {
+    min-width: 150px;
+    max-width: 600px;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+mat-form-field {
+      width: 100%;
+      margin-bottom: 16px;
+}
+
+.server-error {
+    margin: 8px 0;;
+}
+
+
+input {    
+    height: 2em;              
+    div.mat-form-field-infix {
+      padding: .3em 0;
+      input.mat-input-element {
+        vertical-align: top;
+      }
+    }
+  }
+  div.mat-form-field-wrapper{
+    padding-bottom: 1.15em;
+  }
+
+
+h3 {
+    text-align: center;
+}
+
+.container {
+    text-align: center;
+}
+
+button {
+    width: 60%;
+    height: 46px;
+    margin-right: 20%;
+    margin-left: 20%;
+}

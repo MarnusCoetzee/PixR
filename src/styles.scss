@@ -252,3 +252,49 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
     font-family: 'Roboto';
   }
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .container {
+      width: 100%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .container {
+      width: 100%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .container {
+      width: 80%;
+      margin-right: 10%;
+      margin-left: 10%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .container {
+      width: 60%;
+      margin-right: 20%;
+      margin-left: 20%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .container {
+      width: 65%;
+      margin-right: 17.5%;
+      margin-left: 17.5%;
+  }
+}
+
+mat-spinner {
+  margin: auto;
+  margin-top: 30vh;
+}
