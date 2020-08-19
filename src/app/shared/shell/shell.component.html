@@ -31,7 +31,8 @@
           <a mat-button routerLink="/">Home</a>
           <a mat-button routerLink="/">About pixR</a>
           <a mat-button routerLink="/">Featured Art</a>
-          <a mat-button routerLink="/">Artist Login</a>
+          <a *ngIf="!(afAuth.authState | async)" mat-button routerLink="/artist">Artist Login</a>
+          <a *ngIf="(afAuth.authState | async)" mat-button routerLink="/" (click)="onClickLogout()">Logout</a>
         </div>
   
       </mat-toolbar>

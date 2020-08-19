@@ -1,1 +1,49 @@
-<p>dashboard works!</p>
+<div class="container">
+
+    <div *ngIf="isLoading">
+        <mat-spinner></mat-spinner>
+    </div>
+
+    <div *ngIf="!isLoading">
+        <div class="heading">
+            <h1>Dashboard</h1><br>
+            <p>Welcome back, {{ userDetails?.firstName }}</p>
+        </div>
+    
+        <div class="container_heading">
+            <p>Quick Stats</p>
+        </div>
+
+        <br>
+
+        <div class="cards_container">
+            <mat-card>
+                <mat-card-title>Total Orders</mat-card-title>
+                <mat-card-title>125</mat-card-title>
+            </mat-card>
+            <mat-card>
+                <mat-card-title>Total Earnings</mat-card-title>
+                <mat-card-title>R125000</mat-card-title>
+            </mat-card>
+            <mat-card>
+                <mat-card-title>Returning Clients</mat-card-title>
+                <mat-card-title>26</mat-card-title>
+            </mat-card>
+            <mat-card>
+                <mat-card-title>New Clients</mat-card-title>
+                <mat-card-title>+27%</mat-card-title>
+            </mat-card>
+        </div>
+
+        <div class="tabs">
+
+            <mat-tab-group>
+                <mat-tab label="Posts"> Content 1 </mat-tab>
+                <mat-tab label="Active Orders"> Content 2 </mat-tab>
+                <mat-tab label="Past Orders"> Content 3 </mat-tab>
+              </mat-tab-group>
+
+        </div>
+    </div>
+
+</div>

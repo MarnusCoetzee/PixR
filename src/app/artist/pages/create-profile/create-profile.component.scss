@@ -1,0 +1,43 @@
+.heading {
+    display: grid;
+    place-items: center;
+    margin-top: 2rem;
+}
+
+mat-card {
+    width: 70%;
+    margin-right: 15%;
+    margin-left: 15%;
+    margin: 0 auto;
+  }
+  
+mat-form-field {
+      width: 80%;
+      margin-left: 10%;
+      margin-right: 10%;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    mat-card {
+        width: 90%;
+        margin-right: 5%;
+        margin-left: 5%;
+        margin: 0 auto;
+      }
+      
+    mat-form-field {
+          width: 90%;
+          margin-left: 5%;
+          margin-right: 5%;
+    }
+}
+
+.submit_button {
+    display: grid;
+    place-items: center;
+
+    button {
+        height: 46px;
+    }
+}

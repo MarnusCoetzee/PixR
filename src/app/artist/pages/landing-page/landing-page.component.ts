@@ -15,6 +15,7 @@ export class LandingPageComponent implements OnInit {
   isLoading: boolean;
 
   showAuth = false;
+  showDashboard = false;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -27,10 +28,14 @@ export class LandingPageComponent implements OnInit {
     this.authSubscription = this.afAuth.authState.subscribe(authResult => {
       if (authResult) {
         // user is authenticated - navigate them to dashboard
-        this.router.navigate(['artist/dashboard']);
+        // this.router.navigate(['artist/dashboard']);
+        this.showAuth = false;
+        this.showDashboard = true;
+        this.isLoading = false;
       } else {
         // show the authentication component
         this.showAuth = true;
+        this.showDashboard = false;
         this.isLoading = false;
       }
     });

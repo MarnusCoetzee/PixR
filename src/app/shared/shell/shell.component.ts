@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { map, shareReplay } from 'rxjs/operators';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-shell',
@@ -19,7 +20,8 @@ export class ShellComponent implements OnInit {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private router: Router
+    private router: Router,
+    public afAuth: AngularFireAuth
   ) { }
 
   ngOnInit(): void {
@@ -30,6 +32,10 @@ export class ShellComponent implements OnInit {
   }
   onClickNavigateCart() {
     this.router.navigate(['']);
+  }
+
+  onClickLogout() {
+    this.afAuth.signOut();
   }
 
 }

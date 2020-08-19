@@ -93,7 +93,8 @@ export class ArtistAuthComponent implements OnInit {
           const uid = data.user.uid;
           this.db.collection('users').doc(uid).set({uid, email});
         })
-        .then(() => this.router.navigate(['artist/create-profile']));
+        .then(() => this.router.navigate(['artist/create-profile']))
+        .catch((err) => console.log(err));
       }
       if (this.isPasswordReset) {
         await this.afAuth.sendPasswordResetEmail(email);
