@@ -41,4 +41,8 @@ export class LandingPageComponent implements OnInit {
     });
   }
 
+  onClickNavigateDashboard() {
+    this.router.navigate(['artist/dashboard']);
+  }
+
 }

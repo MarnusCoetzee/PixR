@@ -63,7 +63,9 @@ export class CreateProfileComponent implements OnInit {
     try {
       this.db.collection('users').doc(this.uid).update({
         firstName,
-        lastName
+        lastName,
+        imgUrl: 'https://f0.pngfuel.com/png/340/956/profile-user-icon-png-clip-art-thumbnail.png',
+        isArtist: true
       }).then(() => {
         let snackbarRef = this.snackBar.open('Successfully Added Information!');
       }).then(() => {

@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
            }
          });
       } else if(!authResult) {
-        let snackbarRef = this.snackbar.open('Must be signed in');
+        let snackbarRef = this.snackbar.open('Signed Out', 'Okay', { duration: 3000 });
         this.router.navigate(['']);
       }
     });

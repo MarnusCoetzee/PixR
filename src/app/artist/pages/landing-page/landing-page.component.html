@@ -7,10 +7,14 @@
     <div *ngIf="!isLoading">
         <div class="heading">
 
-            <h1>Pixr Artist Landing Page</h1>
+            <h1>Pixr Artist Page</h1>
 
             <div *ngIf="showAuth">
                 <app-artist-auth></app-artist-auth>
+            </div>
+
+            <div *ngIf="showDashboard">
+                <button mat-raised-button color="accent" (click)="onClickNavigateDashboard()">Proceed To Dashboard</button>
             </div>
         
         </div>

@@ -279,9 +279,18 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .container {
-    width: 70%;
-    margin-right: 15%;
-    margin-left: 15%;
+    width: 75%;
+    margin-right: 12.5%;
+    margin-left: 12.5%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) {
+  .container {
+      width: 80%;
+      margin-left: 10%;
+      margin-right: 10%;
   }
 }
 
@@ -289,8 +298,16 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 @media only screen and (min-width: 1200px) {
   .container {
       width: 80%;
-      margin-right: 10%;
       margin-left: 10%;
+      margin-right: 10%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1500px) {
+  .container {
+      width: 80%;
+      margin-left: 20%;
   }
 }
 
