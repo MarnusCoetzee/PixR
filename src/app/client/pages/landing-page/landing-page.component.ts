@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
+  isLoading: boolean;
+
   constructor() { }
 
   ngOnInit(): void {

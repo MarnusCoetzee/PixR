@@ -1,4 +1,65 @@
 .heading {
     display: grid;
     place-items: center;
+    margin-top: 2rem;
 }
+
+.heading h1 {
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.heading hr {
+    color: black;
+    width: 100%;
+}
+
+.featured_artists {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 15px;
+    mat-card {
+        width: 20vw;
+    }
+}
+
+.group_heading {
+    width: 100%;
+}
+.group_heading h1 {
+    margin-left: 0%;
+    font-size: x-large;
+    font-weight: 500;
+}
+
+.card_content img {
+    border-radius: 50%;
+    max-height: 10vh;
+    width: auto;
+    margin: auto;
+}
+
+.card_content {
+    display: grid;
+    place-items: center;
+    h1 {
+        text-align: center;
+        margin-top: 1rem;
+    }
+    h2 {
+        text-align: center;
+        font-size: small;
+    }
+    button {
+        height: 46px;
+        margin-bottom: 5px;
+        width: 10vw;
+    }
+}
+
+.selfie {
+    display: grid;
+    place-items: center;
+}
+
