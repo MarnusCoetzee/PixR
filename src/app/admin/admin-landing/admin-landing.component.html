@@ -1,0 +1,30 @@
+<div class="container">
+
+    <div *ngIf="isLoading">
+        <mat-spinner></mat-spinner>
+    </div>
+
+    <div *ngIf="!isLoading">
+        <div *ngIf="showAuth">
+            <div class="auth_content">
+                <h1>Admin Login</h1>
+                <hr>
+
+                <div class="auth_form">
+                    <mat-card color="medium">
+                        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                            <mat-form-field>
+                                <input matInput placeholder="Email" formControlName="email" type="email">
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput placeholder="Password" formControlName="password" type="password">
+                            </mat-form-field>
+                            <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Login</button>
+                        </form>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
