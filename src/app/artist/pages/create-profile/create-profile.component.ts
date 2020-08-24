@@ -65,7 +65,11 @@ export class CreateProfileComponent implements OnInit {
         firstName,
         lastName,
         imgUrl: 'https://f0.pngfuel.com/png/340/956/profile-user-icon-png-clip-art-thumbnail.png',
-        isArtist: true
+        isArtist: true,
+        ratingsCount: 0,
+        ratingsTotal: 0,
+        hasRating: false,
+        isFeatured: false
       }).then(() => {
         let snackbarRef = this.snackBar.open('Successfully Added Information!');
       }).then(() => {
