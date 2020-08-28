@@ -7,6 +7,7 @@
 
     <div *ngIf="!isLoading">
 
+      <!--LOGIN SECTION-->
       <div *ngIf="showLogin">
         <div class="login_box">
           <div class="heading">
@@ -25,9 +26,9 @@
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
               </mat-form-field>
-              <mat-checkbox>Remember Me</mat-checkbox>
+              <mat-checkbox (click)="changeCheckedValue(rememberMe)" color="primary">Remember Me</mat-checkbox>
               <div class="login_button">
-                <button mat-raised-button color="primary" [disabled]="loginForm.invalid">Login</button>
+                <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="onClickLogin()">Login</button>
               </div>
               <div class="text_button">
                 <button mat-button>Forgot Password</button>
@@ -42,6 +43,7 @@
         </div>
       </div>
 
+      <!--SIGN UP SECTION-->
       <div *ngIf="showSignup">
         <div class="signup_box">
           <div class="heading">
@@ -77,11 +79,12 @@
                   </button>
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Password" formControlName="pass2" [type]="hide ? 'password' : 'text'">
+                  <input matInput placeholder="Confirm Password" formControlName="pass2" [type]="hide ? 'password' : 'text'">
                   <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button>
                 </mat-form-field>
+                <mat-checkbox><a>I agree with terms and conditions</a></mat-checkbox>
               </div>
               <div class="login_button">
                 <button mat-raised-button color="primary" [disabled]="loginForm.invalid">Create Your Profile</button>

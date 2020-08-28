@@ -10,6 +10,8 @@ export class ArtistAuthComponent implements OnInit {
 
   hide = true;
 
+  rememberMe: boolean = false;
+
   loginForm: FormGroup;
   signupForm: FormGroup;
 
@@ -18,6 +20,8 @@ export class ArtistAuthComponent implements OnInit {
   showLogin = true;
   showSignup = false;
   showForgotPassword = false;
+
+  staySignedIn: boolean;
 
   constructor(
     private fb: FormBuilder
@@ -56,5 +60,62 @@ export class ArtistAuthComponent implements OnInit {
     this.showLogin = true;
     this.showForgotPassword = false;
   }
+
+  // get passwords
+  get pass1() {
+    return this.signupForm.get('pass1');
+  }
+
+  get pass2() {
+    return this.signupForm.get('pass2');
+  }
+
+  // validate passwords
+  validatePasswords() {
+    const pass1 = this.pass1.value;
+    const pass2 = this.pass2.value;
+
+    if (pass1 !== pass2) {
+
+    }
+  }
+
+  onClickSignup() {
+    this.isLoading = true;
+    const pass1 = this.pass1.value;
+    const pass2 = this.pass2.value;
+    if (pass1 !== pass2) {
+      // passwords do not match, alert user and return
+      alert('Passwords do not match');
+      this.isLoading = false;
+      return;
+    } else if (pass1 === pass2) {
+      try {
+
+      } catch (error) {
+        console.log(error);
+        return;
+      }
+    }
+    this.isLoading = false;
+  }
+
+  // get login details
+  get loginemail() {
+    return this.loginForm.value.email;
+  }
+  get password() {
+    return this.loginForm.value.password;
+  }
+
+  onClickLogin() {
+    this.isLoading = true;
+    const email = this.loginemail.value;
+    const password = this.password.value;
+  }
+
+  changeCheckedValue(value) {
+    this.rememberMe = !value;
+}
 
 }
