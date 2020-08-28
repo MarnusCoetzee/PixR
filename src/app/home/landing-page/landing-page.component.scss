@@ -15,7 +15,7 @@
     background-size: cover; /* Resize the background image to cover the entire container */
     margin-bottom: -2rem;
   }
-  
+
   .heading h1 {
     font-style: normal;
     font-weight: bold;
@@ -26,7 +26,7 @@
     text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
     margin-top: -20rem;
   }
-  
+
   .heading h2 {
     font-style: normal;
     font-weight: bold;
@@ -52,26 +52,26 @@
     justify-content: center;
     overflow: hidden;
   }
-  
+
   a {
     color: #BFC0C0;
     text-decoration: none;
     letter-spacing: 1px;
   }
-  
+
   /* Fifth Button */
-  
+
   #button-5 {
     position: relative;
     overflow: hidden;
     cursor: pointer;
   }
-  
+
   #button-5 a {
     position: relative;
     transition: all .45s ease-Out;
   }
-  
+
   #translate {
     transform: rotate(50deg);
     width: 100%;
@@ -82,11 +82,11 @@
     position: absolute;
     transition: all .3s ease-Out;
   }
-  
+
   #button-5:hover #translate {
     left: 0;
   }
-  
+
   #button-5:hover a {
     color: #2D3142;
   }
@@ -132,5 +132,4 @@
   background-color: white;
 }
 
-  
-  
+

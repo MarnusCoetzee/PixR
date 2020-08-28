@@ -1,103 +1,102 @@
-<div *ngIf="isLoading">
-    <mat-spinner></mat-spinner>
-</div>
+<div class="content">
+  <div class="container">
 
-<div *ngIf="!isLoading">
-    <mat-card color="medium">
-        <div *ngIf="isSignup">
-          <h3>Create Account</h3>
-      
-          <button mat-stroked-button (click)="changeType('login')">
-            Returning user?
-          </button>
+    <div *ngIf="isLoading">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <div *ngIf="!isLoading">
+
+      <div *ngIf="showLogin">
+        <div class="login_box">
+          <div class="heading">
+            <h1>pixR</h1>
+            <p>Welcome back! Please login to your account.</p>
+          </div>
+
+          <div class="login_form">
+            <form [formGroup]="loginForm">
+              <mat-form-field>
+                <input matInput placeholder="Email" formControlName="email" type="email">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+              <mat-checkbox>Remember Me</mat-checkbox>
+              <div class="login_button">
+                <button mat-raised-button color="primary" [disabled]="loginForm.invalid">Login</button>
+              </div>
+              <div class="text_button">
+                <button mat-button>Forgot Password</button>
+              </div>
+              <div class="space"></div>
+              <div class="login_button">
+                <p>Don't have an account?</p>
+                <button mat-stroked-button (click)="onClickShowSignup()">Sign Up</button>
+              </div>
+            </form>
+          </div>
         </div>
-      
-        <div *ngIf="isLogin">
-          <h3>Sign In</h3>
-          <button size="small" mat-stroked-button (click)="changeType('signup')">
-            New user?
-          </button>
+      </div>
+
+      <div *ngIf="showSignup">
+        <div class="signup_box">
+          <div class="heading">
+            <h1>pixR</h1>
+            <p>Please complete to create your account</p>
+          </div>
+
+          <div class="signup_form">
+            <form [formGroup]="signupForm">
+              <div class="row">
+                <div class="col">
+                  <mat-form-field>
+                    <input matInput placeholder="First Name" formControlName="email" type="email">
+                  </mat-form-field>
+                </div>
+                <div class="col">
+                  <mat-form-field>
+                    <input matInput placeholder="Last Name" formControlName="email" type="email">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="details_fields">
+                <mat-form-field>
+                  <input matInput placeholder="Email" formControlName="email" type="email">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Username" formControlName="password" type="userName">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Password" formControlName="pass1" [type]="hide ? 'password' : 'text'">
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Password" formControlName="pass2" [type]="hide ? 'password' : 'text'">
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+              <div class="login_button">
+                <button mat-raised-button color="primary" [disabled]="loginForm.invalid">Create Your Profile</button>
+              </div>
+              <div class="space"></div>
+              <div class="login_button">
+                <p>Already have an account?</p>
+                <button mat-stroked-button (click)="onClickShowLogin()">Login</button>
+              </div>
+            </form>
+          </div>
         </div>
-      
-        <div *ngIf="isPasswordReset">
-          <h3>Reset Password</h3>
-          <button size="small" mat-button (click)="changeType('login')">Back</button>
-        </div>
-      
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-          <mat-form-field [color]="email.valid && 'primary'">
-            <input
-              matInput
-              formControlName="email"
-              type="email"
-              placeholder="Email"
-              autocomplete="off"
-            />
-      
-            <mat-error *ngIf="email.invalid && email.dirty">
-              You must enter a valid email address
-            </mat-error>
-          </mat-form-field>
-      
-          <mat-form-field [color]="email.valid && 'primary'" *ngIf="!isPasswordReset">
-            <input
-              matInput
-              formControlName="password"
-              type="password"
-              placeholder="Password"
-              autocomplete="off"
-            />
-      
-            <mat-error *ngIf="password.invalid && password.dirty">
-              Password must be at least 6 characters long
-            </mat-error>
-          </mat-form-field>
-      
-          <mat-form-field
-            [color]="passwordDoesMatch ? 'primary' : 'warn'"
-            *ngIf="isSignup"
-          >
-            <input
-              matInput
-              formControlName="passwordConfirm"
-              type="password"
-              placeholder="Confirm password"
-              autocomplete="off"
-            />
-      
-            <mat-error *ngIf="passwordConfirm.dirty && !passwordDoesMatch">
-              Password does not match
-            </mat-error>
-          </mat-form-field>
-      
-          <mat-error class="server-error">{{ serverMessage }}</mat-error>
-      
-          <button
-            *ngIf="isPasswordReset"
-            mat-stroked-button
-            type="submit"
-            [disabled]="isLoading"
-          >
-            Send Reset Email
-          </button>
-      
-          <button
-            *ngIf="!isPasswordReset"
-            mat-raised-button
-            color="primary"
-            type="submit"
-            [disabled]="form.invalid || !passwordDoesMatch || isLoading"
-          >
-            Submit
-          </button>
-        </form>
-      
-        <button
-          mat-button
-          *ngIf="isLogin && !isPasswordReset"
-          (click)="changeType('reset')"
-        >
-          Forgot password?
-        </button>
-      </mat-card>
+      </div>
+
+    </div>
+
+  </div>
 </div>

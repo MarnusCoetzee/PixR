@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
@@ -18,7 +18,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 // Fonts
 @import 'https://fonts.googleapis.com/css?family=Material+Icons';
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
-     
+
 $fontConfig: (
   display-4: mat-typography-level(112px, 112px, 300, 'Roboto', -0.0134em),
   display-3: mat-typography-level(56px, 56px, 400, 'Roboto', -0.0089em),
@@ -247,7 +247,7 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 
 .material-icons {
   font-size: 24px;
-  font-family: 'Material Icons', 'Material Icons';  
+  font-family: 'Material Icons', 'Material Icons';
   .mat-badge-content {
     font-family: 'Roboto';
   }
