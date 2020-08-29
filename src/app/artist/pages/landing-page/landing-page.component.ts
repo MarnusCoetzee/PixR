@@ -34,9 +34,7 @@ export class LandingPageComponent implements OnInit {
         this.isLoading = false;
       } else {
         // show the authentication component
-        this.showAuth = true;
-        this.showDashboard = false;
-        this.isLoading = false;
+        this.router.navigate(['artist/auth']);
       }
     });
   }

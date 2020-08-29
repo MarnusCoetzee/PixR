@@ -6,7 +6,6 @@
     </div>
 
     <div *ngIf="!isLoading">
-
       <!--LOGIN SECTION-->
       <div *ngIf="showLogin">
         <div class="login_box">
@@ -56,12 +55,12 @@
               <div class="row">
                 <div class="col">
                   <mat-form-field>
-                    <input matInput placeholder="First Name" formControlName="email" type="email">
+                    <input matInput placeholder="First Name" formControlName="firstName" type="text">
                   </mat-form-field>
                 </div>
                 <div class="col">
                   <mat-form-field>
-                    <input matInput placeholder="Last Name" formControlName="email" type="email">
+                    <input matInput placeholder="Last Name" formControlName="lastName" type="email">
                   </mat-form-field>
                 </div>
               </div>
@@ -70,7 +69,7 @@
                   <input matInput placeholder="Email" formControlName="email" type="email">
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Username" formControlName="password" type="userName">
+                  <input matInput placeholder="Username" formControlName="userName" type="userName">
                 </mat-form-field>
                 <mat-form-field>
                   <input matInput placeholder="Password" formControlName="pass1" [type]="hide ? 'password' : 'text'">
@@ -84,10 +83,10 @@
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button>
                 </mat-form-field>
-                <mat-checkbox><a>I agree with terms and conditions</a></mat-checkbox>
+                <mat-checkbox (click)="changeAgreeToTermsValue(agreeToTerms)" color="primary">I agree with the terms and conditions</mat-checkbox>
               </div>
               <div class="login_button">
-                <button mat-raised-button color="primary" [disabled]="loginForm.invalid">Create Your Profile</button>
+                <button mat-raised-button color="primary" [disabled]="signupForm.invalid" (click)="onClickSignup()">Create Your Profile</button>
               </div>
               <div class="space"></div>
               <div class="login_button">

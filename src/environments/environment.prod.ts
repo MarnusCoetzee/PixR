@@ -1,14 +1,14 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: "AIzaSyD4ZnbTGjXL_ps4YhyY1MklZBxlz2vhV7E",
-    authDomain: "online-shop-435be.firebaseapp.com",
-    databaseURL: "https://online-shop-435be.firebaseio.com",
-    projectId: "online-shop-435be",
-    storageBucket: "online-shop-435be.appspot.com",
-    messagingSenderId: "912600155906",
-    appId: "1:912600155906:web:ed7968a3f937a1a54c241b",
-    measurementId: "G-T33HL8XM93"
+    apiKey: "AIzaSyDot82AbKBPLPdJ12Nf-RBBn6vomzHIkxg",
+    authDomain: "pixr-aca28.firebaseapp.com",
+    databaseURL: "https://pixr-aca28.firebaseio.com",
+    projectId: "pixr-aca28",
+    storageBucket: "pixr-aca28.appspot.com",
+    messagingSenderId: "1004539816235",
+    appId: "1:1004539816235:web:47901f5e6720c89165bd6e",
+    measurementId: "G-6YMHRG6C4N"
   },
   adminId: 'zcqzrIz7VOcqfLzQvxDgZczpnL72'
 };
