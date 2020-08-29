@@ -20,6 +20,7 @@ export class ArtistAuthComponent implements OnInit {
 
   loginForm: FormGroup;
   signupForm: FormGroup;
+  passwordResetForm: FormGroup;
 
   isLoading: boolean;
 
@@ -40,6 +41,7 @@ export class ArtistAuthComponent implements OnInit {
   ngOnInit(): void {
     this.initLoginForm();
     this.initSignupForm();
+    this.initForgotPasswordForm();
   }
 
   private initLoginForm() {
@@ -60,6 +62,12 @@ export class ArtistAuthComponent implements OnInit {
     });
   }
 
+  private initForgotPasswordForm() {
+    this.passwordResetForm = this.fb.group({
+      email: ['', Validators.required]
+    });
+  }
+
   onClickShowSignup() {
     this.showSignup = true;
     this.showLogin = false;
@@ -70,6 +78,12 @@ export class ArtistAuthComponent implements OnInit {
     this.showSignup = false;
     this.showLogin = true;
     this.showForgotPassword = false;
+  }
+
+  onClickShowForgotPassword() {
+    this.showSignup = false;
+    this.showLogin = false;
+    this.showForgotPassword = true;
   }
 
   // get passwords
@@ -199,6 +213,22 @@ export class ArtistAuthComponent implements OnInit {
 
   private loginToFirebase(email: string, password: string) {
     return this.afAuth.signInWithEmailAndPassword(email, password);
+  }
+
+  async onClickResetPassword() {
+    this.isLoading = true;
+    const email = this.passwordResetForm.value.email;
+    await this.afAuth.sendPasswordResetEmail(email)
+    .then(() => {
+      let snackbarRef = this.snackbar.open('Check Your Email', 'Okay', {
+        duration: 5000
+      });
+      this.isLoading = false;
+    }).catch((err) => {
+      console.log(err);
+      this.isLoading = false;
+      return;
+    });
   }
 
   changeCheckedValue(value) {

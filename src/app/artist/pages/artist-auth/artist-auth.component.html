@@ -9,7 +9,20 @@
       <!--Password reset section-->
       <div *ngIf="showForgotPassword">
         <div class="login_box">
-
+          <div class="heading">
+            <h1>pixR</h1>
+            <p>Reset Your Password</p>
+          </div>
+          <div class="login_form">
+            <form [formGroup]="passwordResetForm" (ngSubmit)="onClickResetPassword()">
+              <mat-form-field>
+                <input matInput placeholder="Email" formControlName="email" type="email">
+              </mat-form-field>
+              <div class="login_button">
+                <button mat-raised-button color="primary" [disabled]="passwordResetForm.invalid" type="submit">Reset Password</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
       <!--LOGIN SECTION-->
@@ -36,7 +49,7 @@
                 <button mat-raised-button color="primary" [disabled]="loginForm.invalid" type="submit">Login</button>
               </div>
               <div class="text_button">
-                <button mat-button>Forgot Password</button>
+                <button mat-button (click)="onClickShowForgotPassword()">Forgot Password</button>
               </div>
               <div class="space"></div>
               <div class="login_button">
