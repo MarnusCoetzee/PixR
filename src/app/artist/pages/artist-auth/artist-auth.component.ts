@@ -116,7 +116,7 @@ export class ArtistAuthComponent implements OnInit {
       try {
         // step 1 - authenticate using firebase auth API
         // set persistence to local
-        await this.afAuth.setPersistence(firebase.auth.Auth.Persistence.SESSION)
+        await this.afAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
         .then(() => {
           this.afAuth.createUserWithEmailAndPassword(email, pass1)
           .then(async (user) => {
@@ -156,18 +156,49 @@ export class ArtistAuthComponent implements OnInit {
     }
   }
 
-  // get login details
-  get loginemail() {
-    return this.loginForm.value.email;
-  }
-  get password() {
-    return this.loginForm.value.password;
+  async onClickLogin() {
+    this.isLoading = true;
+    const email = this.loginForm.value.email;
+    const password = this.loginForm.value.password;
+    if (this.rememberMe === true) {
+      await this.afAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+      .then(() => {
+        this.loginToFirebase(email, password)
+        .then(() => {
+          let snackbarRef = this.snackbar.open('Successfully logged in', 'Okay', {
+            duration: 1000
+          });
+          this.isLoading = false;
+          this.router.navigate(['artist/dashboard']);
+        })
+      }).catch((error) => {
+        console.log(error);
+        this.isLoading = false;
+        return;
+      });
+    }
+
+    if (!this.rememberMe === true) {
+      await this.afAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+      .then(() => {
+        this.loginToFirebase(email, password)
+        .then(() => {
+          let snackbarRef = this.snackbar.open('Successfully logged in', 'Okay', {
+            duration: 1000
+          });
+          this.isLoading = false;
+          this.router.navigate(['artist/dashboard']);
+        })
+      }).catch((error) => {
+        console.log(error);
+        this.isLoading = false;
+        return;
+      });
+    }
   }
 
-  onClickLogin() {
-    this.isLoading = true;
-    const email = this.loginemail.value;
-    const password = this.password.value;
+  private loginToFirebase(email: string, password: string) {
+    return this.afAuth.signInWithEmailAndPassword(email, password);
   }
 
   changeCheckedValue(value) {

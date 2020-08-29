@@ -6,6 +6,12 @@
     </div>
 
     <div *ngIf="!isLoading">
+      <!--Password reset section-->
+      <div *ngIf="showForgotPassword">
+        <div class="login_box">
+
+        </div>
+      </div>
       <!--LOGIN SECTION-->
       <div *ngIf="showLogin">
         <div class="login_box">
@@ -15,7 +21,7 @@
           </div>
 
           <div class="login_form">
-            <form [formGroup]="loginForm">
+            <form [formGroup]="loginForm" (ngSubmit)="onClickLogin()">
               <mat-form-field>
                 <input matInput placeholder="Email" formControlName="email" type="email">
               </mat-form-field>
@@ -27,7 +33,7 @@
               </mat-form-field>
               <mat-checkbox (click)="changeCheckedValue(rememberMe)" color="primary">Remember Me</mat-checkbox>
               <div class="login_button">
-                <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="onClickLogin()">Login</button>
+                <button mat-raised-button color="primary" [disabled]="loginForm.invalid" type="submit">Login</button>
               </div>
               <div class="text_button">
                 <button mat-button>Forgot Password</button>
@@ -51,7 +57,7 @@
           </div>
 
           <div class="signup_form">
-            <form [formGroup]="signupForm">
+            <form [formGroup]="signupForm" (ngSubmit)="onClickSignup()">
               <div class="row">
                 <div class="col">
                   <mat-form-field>
@@ -86,7 +92,7 @@
                 <mat-checkbox (click)="changeAgreeToTermsValue(agreeToTerms)" color="primary">I agree with the terms and conditions</mat-checkbox>
               </div>
               <div class="login_button">
-                <button mat-raised-button color="primary" [disabled]="signupForm.invalid" (click)="onClickSignup()">Create Your Profile</button>
+                <button mat-raised-button color="primary" [disabled]="signupForm.invalid" type="submit">Create Your Profile</button>
               </div>
               <div class="space"></div>
               <div class="login_button">
