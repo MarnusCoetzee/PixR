@@ -102,6 +102,7 @@
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button>
                 </mat-form-field>
+                <mat-checkbox (click)="changeAgreeToTermsValue(agreeToTerms)" color="primary">I want to sell my art</mat-checkbox><br>
                 <mat-checkbox (click)="changeAgreeToTermsValue(agreeToTerms)" color="primary">I agree with the terms and conditions</mat-checkbox>
               </div>
               <div class="login_button">
